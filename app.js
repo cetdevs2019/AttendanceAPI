@@ -1,27 +1,18 @@
 const express = require('express');
 const app = express();
-const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('data', 'root', 'password', {
-  host: 'localhost',
-  dialect: 'mysql'
-});
+const router = require('./routes/index')
+//const Sequelize = require('sequelize');
+// const sequelize = new Sequelize('data', 'root', 'password', {
+//   host: 'localhost',
+//   dialect: 'mysql'
+// });
 
-
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
-
-
-
-app.get('/', (req, res) => {
-    res.send("IT WORKS!")
-})
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}));
+app.use('/', router)
 
 const port = process.env.port || 3000
 
