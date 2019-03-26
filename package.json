@@ -1,6 +1,6 @@
 {
   "name": "attendanceapi",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "DEBUG=myapp:* nodemon ./bin/www"
