@@ -1,23 +1,20 @@
 const express = require('express');
 const app = express();
 
-const router = require('./routes/index')
-const methods = require('./methods')
-const models = require('./models')
+const router = require('./routes/index');
+const methods = require('./methods');
 
-// console.log(methods.students.Attendance.sayHello("Name"));
+methods.people.People.getPeople(22).then(person => {
+  console.log(person.dataValues);
+});
 
 app.use(express.json());
 app.use(express.urlencoded({
   extended: false
 }));
 app.use('/', router)
-// models.people.findOne({where: {id: 1}}).then(person => {
-//   person.destroy();
-// });
 
-console.log(models.people);
 
-const port = process.env.port || 3000
+const port = 3000;
 
-app.listen(port, () => console.log(`Listening on port ${port}`))
+app.listen(port, () => console.log(`Listening on port ${port}`));

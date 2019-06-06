@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/cetdevs2019/AttendanceAPI#readme",
   "dependencies": {
+    "bluebird": "^3.5.4",
     "express": "^4.16.4",
     "mysql2": "^1.6.5",
     "sequelize": "^5.1.1"
